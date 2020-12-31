@@ -8,10 +8,11 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
+      require('karma-phantomjs-launcher' ),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma'),
-      require( 'karma-phantomjs-launcher' )
+      require('@angular-devkit/build-angular/plugins/karma')
+      
     ],
     client: {
       jasmine: {
@@ -38,8 +39,15 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS','Chrome'],
-    singleRun: false,
+    // browsers: ['PhantomJS','Chrome'],
+    browsers: ['Chrome','ChromeHeadless','PhantomJS'],
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
+    singleRun: true,
     restartOnFileChange: true
   });
 };
