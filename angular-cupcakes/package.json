@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
     "intl": "^1.2.5",
+    "phantomjs": "^2.1.7",
+    "puppeteer": "^5.5.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
