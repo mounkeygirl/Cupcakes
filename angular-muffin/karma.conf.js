@@ -11,6 +11,7 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
+      require('karma-firefox-launcher'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -48,7 +49,17 @@ module.exports = function (config) {
   Chrome_without_security: {
     base: 'Chrome',
     flags: ['--disable-web-security', '--disable-site-isolation-trials']
-  }
+  },
+  'FirefoxHeadless': {
+    base: 'Firefox',
+    flags: [
+        '-headless',
+    ],
+    prefs: {
+        'network.proxy.type': 0
+    }
+}
+
 },
     singleRun: false,
     restartOnFileChange: true
